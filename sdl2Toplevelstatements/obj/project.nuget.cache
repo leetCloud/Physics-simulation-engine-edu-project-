@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "rumgMsTjoHMz1Jye2oYXvC/P7qdZl6YYkCEv4hi1oPwJ+2YE/LZanCLbb5HCnotf0GzznQhUeylQLkqQtMR/BA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Михаил\\Desktop\\sdl2Toplevelstatements\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Михаил\\.nuget\\packages\\sayers.sdl2.core\\1.0.11\\sayers.sdl2.core.1.0.11.nupkg.sha512",
+    "C:\\Users\\Михаил\\.nuget\\packages\\sdl2\\2.0.5\\sdl2.2.0.5.nupkg.sha512",
+    "C:\\Users\\Михаил\\.nuget\\packages\\sdl2.redist\\2.0.5\\sdl2.redist.2.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
