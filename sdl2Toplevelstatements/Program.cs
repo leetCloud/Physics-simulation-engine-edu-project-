@@ -13,6 +13,7 @@ namespace PhysicsSimulation
         static void Main(string[] args)
         {
             SDL_Event e;
+            bool running = true;
             var MyCanvas = new Canvas(_ScreenHeight, _ScreenWeight );
             
             //Statics:
@@ -21,10 +22,10 @@ namespace PhysicsSimulation
             //Some Actions:
             try
             {
-                while (true)
+                while (running)
                 {
- 
-                   InterestingFunctional.PingPong(new Circle(new Point2D(0, 240), 40), MyCanvas);
+                    InterestingFunctional.PingPong(new Circle(new Point2D(0, 240), 40), MyCanvas);
+                    
                 }
             }
             catch(Exception err)

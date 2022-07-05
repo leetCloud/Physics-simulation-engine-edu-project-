@@ -14,9 +14,9 @@ namespace PhysicsSimulation
             for (int i = 40; i < 640; i += 5)
             {
                 var circ = new Circle(new Point2D(0 + i, 240), 40);
-                canv?.drawCircle(circ, new Color(175, 0, 42, 0));
+                canv?.drawCircle(circ, new Color(50, 0, 42));
                 canv?.cUpd();
-                canv?.cFill(new Color(140, 146, 172, 0));
+                canv?.cFill(new Color(140, 146, 172));
 
             }
             rl(c, canv);
@@ -26,9 +26,9 @@ namespace PhysicsSimulation
             for (int i = 640; i > 0; i -= 5)
             {
                 var circ = new Circle(new Point2D(0 + i, 240), 40);
-                canv?.drawCircle(circ, new Color(175, 0, 42, 0));
+                canv?.drawCircle(circ, new Color(50, 0, 42));
                 canv?.cUpd();
-                canv?.cFill(new Color(140, 146, 172, 0));
+                canv?.cFill(new Color(140, 146, 172));
             }
             lr(c, canv);
         }
