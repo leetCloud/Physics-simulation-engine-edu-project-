@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System;
 using SDL2;
+using sdl2Toplevelstatements;
 using static SDL2.SDL;
 
 namespace PhysicsSimulation
@@ -19,7 +20,7 @@ namespace PhysicsSimulation
 
             window = SDL.SDL_CreateWindow
                 (
-                    $"Frames per second :{SDL_GetTicks()}",
+                    $"Frames per second : ---",
                     SDL.SDL_WINDOWPOS_UNDEFINED,
                     SDL.SDL_WINDOWPOS_UNDEFINED,
                     wh,
@@ -66,7 +67,11 @@ namespace PhysicsSimulation
             cSetColor(this, c);
             r1.DrawRectangle(this.renderer);
         }
-          
+        internal void drawRectangleP(ImplementedRectangle prect, Color c)
+        {
+            cSetColor(this, c);
+            prect.DrawRectangle(this.renderer);
+        }
 
     }
 }   

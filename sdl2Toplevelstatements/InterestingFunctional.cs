@@ -11,10 +11,10 @@ namespace PhysicsSimulation
     {
         private static void lr(Circle c, Canvas canv)
         {
-            for (int i = 40; i < 640; i += 5)
+            for (int i = 41; i < 640; i += 5)
             {
-                var circ = new Circle(new Point2D(0 + i, 240), 40);
-                canv?.drawCircle(circ, new Color(50, 0, 42));
+                var circ = new Circle(new Point2D(0 + i, 200), 40);
+                canv?.drawCircle(circ, new Color(255, 140, 25));
                 canv?.cUpd();
                 canv?.cFill(new Color(140, 146, 172));
 
@@ -23,37 +23,37 @@ namespace PhysicsSimulation
         }
         static private void rl(Circle c, Canvas canv)
         {
-            for (int i = 640; i > 0; i -= 5)
+            for (int i = 639; i > 1; i -= 5)
             {
-                var circ = new Circle(new Point2D(0 + i, 240), 40);
-                canv?.drawCircle(circ, new Color(50, 0, 42));
+                var circ = new Circle(new Point2D(0 + i, 200), 40);
+                canv?.drawCircle(circ, new Color(255, 140, 25));
                 canv?.cUpd();
                 canv?.cFill(new Color(140, 146, 172));
             }
-            lr(c, canv);
+           lr(c, canv);
         }
-        static private void pp(Circle c, Canvas canv)
+
+        public static void pp(Circle c, Canvas canv)
         {
-            while (true)
-            {
                 switch (c.center.X - 320)
                 {
                     case (< 0):
                         InterestingFunctional.fromLeft2RightBorder(c, canv);
                         break;
-
                     default:
                         InterestingFunctional.fromRight2LeftBorder(c, canv);
                         break;
-
-
                 }
-            }
-
         }
-        public static CanvasCircle fromLeft2RightBorder = lr;
-        public static CanvasCircle fromRight2LeftBorder = rl;
+
+
+
+
+        private static CanvasCircle fromLeft2RightBorder = lr;
+        private static CanvasCircle fromRight2LeftBorder = rl;
         public static CanvasCircle PingPong = pp;
+        
+
 
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhysicsSimulation
 {       
+
     internal struct Color
     {
         internal byte R, G, B, A = 0;
@@ -36,7 +37,7 @@ namespace PhysicsSimulation
                 case Pressets.Orange:
                     return new Color(255, 170, 0);
                 case Pressets.Blue:
-                    return new Color(25, 25, 255);
+                    return new Color(153, 187, 255);
                 case Pressets.Green:
                     return new Color(0, 255, 42);
                 case Pressets.White:

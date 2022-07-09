@@ -9,20 +9,24 @@ using static SDL2.SDL;
 
 namespace PhysicsSimulation
 {
+
+
     internal class Rect
     {
-        public Rect(Point2D start, Point2D end)
+        public Rect(Vector2D start, int width, int height)
         {
-            Start= start;
-            End= end;
+            Start = start;
+            Width = width;
+            Height = height;
         }
-        public static Point2D Start { get;private set; }
-        public static Point2D End { get;private set; }
+        public static int Width { get;private set; }
+        public static int Height { get;private set; }
+        public static Vector2D Start { get;private set; }
         public Action<IntPtr> DrawRectangle = renderer =>
         {
-            for (int i = Start.X; i < End.X; i++)
+            for (int i = Start.X; i < Width; i++)
             {
-                for (int j = Start.Y; j < End.Y; j++)
+                for (int j = Start.Y; j < Height; j++)
                 {
                     SDL_RenderDrawPoint(renderer, i, j);
                 }
