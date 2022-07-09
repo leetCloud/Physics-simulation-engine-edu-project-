@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Михаил\\Desktop\\sdl2Toplevelstatements\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj": {}
+    "C:\\Users\\Михаил\\Documents\\GitHub\\Physics-simulation-engine-edu-project-\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Михаил\\Desktop\\sdl2Toplevelstatements\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj": {
+    "C:\\Users\\Михаил\\Documents\\GitHub\\Physics-simulation-engine-edu-project-\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Михаил\\Desktop\\sdl2Toplevelstatements\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj",
+        "projectUniqueName": "C:\\Users\\Михаил\\Documents\\GitHub\\Physics-simulation-engine-edu-project-\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj",
         "projectName": "sdl2Toplevelstatements",
-        "projectPath": "C:\\Users\\Михаил\\Desktop\\sdl2Toplevelstatements\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj",
+        "projectPath": "C:\\Users\\Михаил\\Documents\\GitHub\\Physics-simulation-engine-edu-project-\\sdl2Toplevelstatements\\sdl2Toplevelstatements.csproj",
         "packagesPath": "C:\\Users\\Михаил\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Михаил\\Desktop\\sdl2Toplevelstatements\\sdl2Toplevelstatements\\obj\\",
+        "outputPath": "C:\\Users\\Михаил\\Documents\\GitHub\\Physics-simulation-engine-edu-project-\\sdl2Toplevelstatements\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
