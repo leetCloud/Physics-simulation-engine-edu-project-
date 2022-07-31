@@ -1,59 +1,61 @@
 ﻿using System;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using SDL2;
 using System.Threading;
-using static SDL2.SDL;
-using static PhysicsSimulation.InterestingFunctional;
-
 using sdl2Toplevelstatements;
-
 
 namespace PhysicsSimulation
 {
+
+
     internal class Program
     {
-        
-        readonly static int _ScreenHeight = 640, _ScreenWeight = 480;
+        //Models:
+        public static Vector2D myVector2D = new Vector2D(100, 100);
+
+        ////Fields:
+        private readonly static int _ScreenHeight = 640, _ScreenWeight = 480;
+
+        private const float fps = 60;
         static void Main(string[] args)
         {
-            SDL_Event e;
-            bool running = true;
-            var MyCanvas = new Canvas(_ScreenHeight, _ScreenWeight );
-
-            //Statics:
-
-            MyCanvas?.cFill(new Color(140, 146, 172));
-            MyCanvas.cUpd();
-            Circle c1 = new Circle(new Point2D(200, 200), 55);
-            int dt = 0;
-            ImplementedRectangle rectangleP = new ImplementedRectangle(new Vector2D(0, 100), new Vector2D(400, 100), 100, 100);
-            //Some Actions:
-            
-            try 
+            Canvas MyCanvas = null;
+            try
             {
-                while (running)
-                {
-                    rectangleP.PhysRectMove(rectangleP, dt);
-                    if (rectangleP.Start.X + rectangleP.H > _ScreenWeight && rectangleP.Velocity.X > 0)
-                        rectangleP.Velocity = new Vector2D(-rectangleP.Velocity.X, rectangleP.Velocity.Y);
-                    if (rectangleP.Start.X < 0 && rectangleP.Velocity.X > 0)
-                        rectangleP.Velocity = new Vector2D(-rectangleP.Velocity.X, rectangleP.Velocity.Y);
-                    if (rectangleP.Start.Y + rectangleP.H > _ScreenHeight && rectangleP.Velocity.X > 0)
-                        rectangleP.Velocity = new Vector2D(rectangleP.Velocity.X, -rectangleP.Velocity.Y);
-                    if (rectangleP.Start.Y < 0 && rectangleP.Velocity.Y < 0)
-                        rectangleP.Velocity = new Vector2D(rectangleP.Velocity.X, -rectangleP.Velocity.Y);
+                MyCanvas = new Canvas(640, 480);
+                PhysicalRect r2 = new PhysicalRect(new Vector2D(100, 80), new Vector2D(200, 160), new Vector2D(10, 10));
+                var dt = 0;
+                MyCanvas.DrawPhysRect(r2);
 
-                    MyCanvas.drawCircle(c1, Color.ChooseColorPresset(Color.Pressets.White));
-                    MyCanvas.drawRectangleP(rectangleP, Color.ChooseColorPresset(Color.Pressets.Blue));
-                    MyCanvas.cUpd();
+                while (true)
+                {
+                    MyCanvas.Upd();
+
+                    var t0 = SDL.SDL_GetTicks();
+                    (r2 as IMovable).Move(1);//try int
+
+
+                    MyCanvas.Fill(Color.ChooseColorPresset(Color.Pressets.Black));
+                    MyCanvas.DrawPhysRect(r2);
+
+
+                    MyCanvas.Upd();
+
+                    var t1 = SDL.SDL_GetTicks();
+                    dt = (int)(t1 - t0) / 1000;
 
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 Console.WriteLine(err.Message);
                 Console.WriteLine(err.StackTrace);
                 Console.WriteLine(err.InnerException);
+            }
+            finally
+            {
+                MyCanvas.Remove();
             }
         }
     }

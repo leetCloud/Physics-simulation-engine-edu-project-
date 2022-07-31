@@ -1,37 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
-using SDL2;
-using static SDL2.SDL;
+﻿using System.Xml;
+using sdl2Toplevelstatements;
 
 namespace PhysicsSimulation
 {
-
-
     internal class Rect
     {
-        public Rect(Vector2D start, int width, int height)
+        public Rect(Vector2D tl, Vector2D br)
         {
-            Start = start;
-            Width = width;
-            Height = height;
+            topleft = tl;
+            bottomright = br;
         }
-        public static int Width { get;private set; }
-        public static int Height { get;private set; }
-        public static Vector2D Start { get;private set; }
-        public Action<IntPtr> DrawRectangle = renderer =>
+        internal void RectInfo() => Console.Write($"{this.topleft.X}, {this.topleft.Y}, {this.bottomright.X}, {this.bottomright.Y}");
+        internal Vector2D topleft { get; set; }
+        internal Vector2D bottomright { get; set; }
+    }
+
+    internal class PhysicalRect : Rect, IMovable
+    {
+        private Vector2D _velocity;
+        internal Vector2D topleft { get; set; }
+        internal Vector2D bottomright { get; set; }
+        void IMovable.Move(int dt)
         {
-            for (int i = Start.X; i < Width; i++)
-            {
-                for (int j = Start.Y; j < Height; j++)
-                {
-                    SDL_RenderDrawPoint(renderer, i, j);
-                }
-            }
-        };
-        
+            Vector2D dx = new Vector2D(0, 0);
+            Vector2D.VectorOfMultiply(dx, this._velocity, dt);
+            Vector2D.VectorOfSum(this.topleft, this.topleft, dx);
+            if (this.topleft.X + this.bottomright.X > Universe.rb && this._velocity.X > 0)
+                Vector2D.VectorHorizontal(this._velocity);
+            if (this.topleft.X < Universe.lb && this._velocity.X < 0)
+                Vector2D.VectorHorizontal(this._velocity);
+            if (this.topleft.Y + this.bottomright.Y > Universe.bb && this._velocity.Y > 0)
+                Vector2D.VectorVertical(this._velocity);
+            if (this.topleft.Y < Universe.tb && this._velocity.Y < 0)
+                Vector2D.VectorVertical(this._velocity);
+        }
+        internal void RectInfo()
+        {
+            base.RectInfo();
+            Console.Write($" Velocity: {this._velocity.X}, {this._velocity.Y}");
+        }
+        internal PhysicalRect(Vector2D br, Vector2D tl, Vector2D vel) : base(br, tl)
+        {
+            bottomright = br;
+            topleft = tl;
+            _velocity = vel;
+        }
     }
 }
