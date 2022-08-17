@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace PhysicsSimulation
 {
-
-
     internal class Circle
     {
         public Point2D center;

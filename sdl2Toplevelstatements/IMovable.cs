@@ -8,6 +8,6 @@ namespace PhysicsSimulation
 {
     internal interface IMovable
     {
-        void Move(int a);
+        void Move(float a);
     }
 }

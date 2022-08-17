@@ -8,14 +8,14 @@ using System.Drawing;
 using SDL2;
 using sdl2Toplevelstatements;
 
-using static SDL2.SDL;
+using static  SDL2.SDL;
 namespace PhysicsSimulation
 {
     public sealed class Canvas
     {
         protected internal IntPtr window { get; set; }
         protected internal IntPtr renderer { get; set; }
-
+            
         internal Canvas(int wh, int hh)
         {
             window = SDL.SDL_CreateWindow
@@ -34,7 +34,7 @@ namespace PhysicsSimulation
                     SDL.SDL_RendererFlags.SDL_RENDERER_ACCELERATED |
                     SDL.SDL_RendererFlags.SDL_RENDERER_PRESENTVSYNC
                  );
-
+           
         }
         internal void Upd() => SDL_RenderPresent(renderer);
         internal void Remove()
@@ -51,7 +51,7 @@ namespace PhysicsSimulation
         internal void draw2d(Vector2D Vp, Color color)
         {
             SetColor(this, color);
-            SDL_RenderDrawPoint(this.renderer, Vp.X, Vp.Y);
+            SDL_RenderDrawPointF(this.renderer, Vp.X, Vp.Y);
         }
         internal void Fill(Color c)
         {
@@ -61,7 +61,7 @@ namespace PhysicsSimulation
         internal void MDrawVector(Vector2D p, Color c)
         {
             SetColor(this, c);
-            SDL_RenderDrawPoint(renderer, p.X, p.Y);
+            SDL_RenderDrawPointF(renderer,p.X, p.Y);
         }
         internal void MDrawCircle(Circle crc, Color c)
         {
@@ -80,7 +80,6 @@ namespace PhysicsSimulation
                     draw2d(pVector2D, c);
             }
         }
-
         internal void DrawPhysRect(PhysicalRect r)
         {
             Vector2D end = new Vector2D(r.bottomright.X + r.topleft.X, r.bottomright.Y + r.topleft.Y);
@@ -92,9 +91,7 @@ namespace PhysicsSimulation
                     draw2d(pVector2D, Color.ChooseColorPresset(Color.Pressets.Yellow));
                 }
             }
-
         }
-
-
     }
-}
+}   
+
