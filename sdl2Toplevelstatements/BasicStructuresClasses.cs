@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-namespace PhysicsSimulation
+﻿namespace PhysicsSimulation
 {
     internal class Point2D
     {
@@ -22,25 +13,9 @@ namespace PhysicsSimulation
         internal float X { get; set; }
         internal float Y { get; set; }
         internal Vector2D(float x, float y) { X = x; Y = y; }
-        internal static Vector2D VectorOfSum(Vector2D v1, Vector2D v2, Vector2D c)
-        {
-            v1.X = v2.X + c.X;
-            v1.Y = v2.Y + c.Y;
-            return v1;
-        }
-
-        internal static Vector2D VectorOfDifference(Vector2D v1, Vector2D v2, float c)
-        {
-            v1.X = v2.X - c;
-            v1.Y = v2.Y - c;
-            return v1;
-        }
-        internal static Vector2D VectorOfMultiply(Vector2D v1, Vector2D v2, float a) 
-        {
-            v1.X = v2.X * a;
-            v1.Y = v2.Y * a;
-            return v1;
-        }
+        public static Vector2D operator +(Vector2D v1, Vector2D v2) => new Vector2D(v1.X + v2.X, v1.Y + v2.Y);
+        public static Vector2D operator -(Vector2D v1, float c) => new Vector2D(v1.X - c, v1.Y -c);
+        public static Vector2D operator *(Vector2D v1,float c) => new Vector2D(v1.X * c, v1.Y * c);
         internal static void VectorVertical(Vector2D v) => v.Y *= -1;
         internal static void VectorHorizontal(Vector2D v) => v.X *= -1;
     }

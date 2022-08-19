@@ -23,8 +23,8 @@ namespace PhysicsSimulation
         void IMovable.Move(float dt)
         {
             Vector2D dx = new Vector2D(0, 0);
-            Vector2D.VectorOfMultiply(dx, this._velocity, dt);
-            Vector2D.VectorOfSum(this.topleft, this.topleft, dx);
+            dx = _velocity * dt;
+            topleft += dx;
             if (this.topleft.X + this.bottomright.X > Universe.rb && this._velocity.X > 0.0)
                 Vector2D.VectorHorizontal(this._velocity);
             if (this.topleft.X < Universe.lb && this._velocity.X < 0.0)
